@@ -1,0 +1,24 @@
+
+
+
+  <div class="form-group">
+    <input type="text"
+           class="form-control"
+           maxlength=20
+           placeholder={{initial_input}}
+           [(ngModel)]="user_input">
+  </div>
+
+  <button type="submit"
+          class="btn btn-primary"
+          (click)="doPOST()">Press Submit
+  </button>
+
+  <div class="form-group">
+      <input type="text"
+             class="form-control"
+             placeholder={{initial_output}}
+             [(ngModel)]="server_output">
+    </div>
+
+
