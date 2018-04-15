@@ -14,8 +14,11 @@ export class ViaComponent implements OnInit {
 
 	user_input: string;
   server_output: string;
+  // harcoding the value here but in prod use configuration 
+  // to setup these url, port and paths
   url = `http://localhost:8000`
 
+  // json can be used to get pass the CORS issue
   constructor(private http: Http) { 
     this.user_input = ""
     this.server_output = ""
@@ -25,7 +28,7 @@ export class ViaComponent implements OnInit {
   }
 
   doPOST(){
-    console.log("I'm POSTing");
+    console.log("I'm 'POST'ing");
     if (this.user_input.length > 0) {
       this.http.post(this.url, {input:this.user_input}).subscribe(res => (this.server_output  = res.json()['response']));
     } else {
