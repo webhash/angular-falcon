@@ -1,24 +1,14 @@
-
-
-
-  <div class="form-group">
-    <input type="text"
-           class="form-control"
+<input type="text"
            maxlength=20
            placeholder={{initial_input}}
-           [(ngModel)]="user_input">
-  </div>
+           [(ngModel)]="user_input"><br>
 
-  <button type="submit"
-          class="btn btn-primary"
-          (click)="doPOST()">Press Submit
-  </button>
+<button type="submit"
+          (click)="doPOST()">Send Information to API</button><br>
 
-  <div class="form-group">
-      <input type="text"
-             class="form-control"
+<input type="text"
              placeholder={{initial_output}}
-             [(ngModel)]="server_output">
-    </div>
+             [(ngModel)]="server_output"><br>
+
 
 

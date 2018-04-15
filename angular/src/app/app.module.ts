@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ViaComponent } from './via/via.component';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http'
 
+// add our component
+import { ViaComponent } from './via/via.component';
+
+// add dependencies 
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { HttpModule } from '@angular/http'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

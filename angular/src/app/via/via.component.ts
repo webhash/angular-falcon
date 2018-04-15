@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -6,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './via.component.html',
   styleUrls: ['./via.component.scss']
 })
+
 export class ViaComponent implements OnInit {
 
-  initial_input: string = "Enter the request here!"
-  initial_output: string = "And we will show the response"
+  initial_input: string = "Input to API."
+  initial_output: string = "Output from API"
 
 	user_input: string;
-	server_output: string;
+  server_output: string;
+  url = `http://localhost:8000`
 
-  constructor() { 
+  constructor(private http: Http) { 
     this.user_input = ""
     this.server_output = ""
   }
@@ -23,12 +26,12 @@ export class ViaComponent implements OnInit {
   }
 
   doPOST(){
-    console.log("POST");
+    console.log("I'm POSTing");
     if (this.user_input.length > 0) {
-      this.server_output = "{{" + this.user_input + "}}"
+      this.http.post(this.url, {input:this.user_input}).subscribe(res => (this.server_output  = res.json()['response']));
     } else {
-      this.user_input = this.initial_input
-      this.server_output = this.initial_output
+      this.user_input = ""
+      this.server_output = ""
     }
       
   }

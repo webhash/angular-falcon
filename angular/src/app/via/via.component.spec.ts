@@ -22,4 +22,18 @@ describe('ViaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render input box ', async(() => {
+    const fixture = TestBed.createComponent(ViaComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input').textContent).toContain("Input to API.");
+  }));
+
+  it('should render output box', async(() => {
+    const fixture = TestBed.createComponent(ViaComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input').textContent).toContain("Output to API");
+  }));
 });
