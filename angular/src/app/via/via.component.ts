@@ -9,14 +9,14 @@ import { Http } from '@angular/http';
 
 export class ViaComponent implements OnInit {
 
-  initial_input: string = "Input to API."
-  initial_output: string = "Output from API"
+  readonly INITIAL_INPUT: string = "Input to API."
+  readonly INITIAL_OUTPUT: string = "Output from API"
 
 	user_input: string;
   server_output: string;
   // harcoding the value here but in prod use configuration 
   // to setup these url, port and paths
-  url = `http://localhost:8000`
+  uri = `http://localhost:9999`
 
   // json can be used to get pass the CORS issue
   constructor(private http: Http) { 
@@ -30,7 +30,7 @@ export class ViaComponent implements OnInit {
   doPOST(){
     console.log("I'm 'POST'ing");
     if (this.user_input.length > 0) {
-      this.http.post(this.url, {input:this.user_input}).subscribe(res => (this.server_output  = res.json()['response']));
+      this.http.post(this.uri, {input:this.user_input}).subscribe(res => (this.server_output  = res.json()['response']));
     } else {
       this.user_input = ""
       this.server_output = ""
